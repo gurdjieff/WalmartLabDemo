@@ -35,24 +35,26 @@
 
 - (void)initData {
     _populatedPageIndexs = [NSMutableSet set];
-    
-    self.navigationItem.title = [NSString stringWithFormat:@"Product %ld", _pageIndex];
-    
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.navigationItem.title = @"Product";
+    [self initData];
+    [self configScrollView];
+}
+
+#pragma mark -config views
+
+- (void)configScrollView {
+    self.navigationItem.title = @"Product";
     _scrollViewWidth.constant = [General screenWidth] * _productsList.count;
     [self updateProductDetailView];
     [_scrollView layoutIfNeeded];
     [_scrollView setContentOffset:CGPointMake(_pageIndex * [General screenWidth], 0) animated:NO];
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    [self initData];
-}
-
-#pragma mark -config views
-
 - (void)updateProductDetailView {
-    self.navigationItem.title = [NSString stringWithFormat:@"Product %ld", _pageIndex];
     [self configViewWithIndex:_pageIndex - 1];
     [self configViewWithIndex:_pageIndex];
     [self configViewWithIndex:_pageIndex + 1];

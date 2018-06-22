@@ -81,11 +81,11 @@ static CGFloat cellHeight = 100.0;
 - (void)initData {
     _productsList = [NSMutableArray array];
     _pageNumber = 1;
-    self.navigationItem.title = @"Product List";
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationItem.title = @"Products";
     [self initData];
     [self registCell];
     [self addFreshView];

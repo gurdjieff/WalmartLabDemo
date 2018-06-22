@@ -29,7 +29,6 @@ static NSString *pageSize = @"20";
             && responseObject[@"pageSize"]
             && responseObject[@"products"]
             && responseObject[@"totalProducts"]) {
-            NSLog(@"%@", responseObject);
             NSMutableArray<WLProductModel *> * products = [NSMutableArray array];
             for (NSDictionary *dic in responseObject[@"products"]) {
                 WLProductModel *model = [[WLProductModel alloc] initWithProductId:dic[@"productId"]
